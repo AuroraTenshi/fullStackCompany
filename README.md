@@ -9,11 +9,32 @@
 
 * Projectek(id, név, igénylő, határidő)
 
-* Telephely(név, cím, típus)
+* Telephelyek(név, cím, típus)
 
 * Nyersanyagok(id, név, mennyiség, hely)
 
 
 ## Objektumok kapcsolatai
+* **Alkalmazottak - Projectek**
+(n<->n)
 
-## Programozási eszközök
+* **Alkalmazottak - Telephelyek**
+(1<->n)
+
+* **Nyersanyagok - Telephelyek**
+(1<->n)
+
+## Szerepkörök
+* Főnök
+  * Nyersanyagigénylés elbírálása
+  * Project létrehozása
+  * Project lezárása
+  * Alkalmazottak adatainak lekérdezése
+
+* Alkalmazott
+  * Nyersanyag igénylése
+  * Más alkalmazottak elérhetőségének lekérdezése
+
+* Vendég
+  * Regisztráció
+  * Bejelentkezés
