@@ -37,6 +37,22 @@ public class ProjectController {
         return ResponseEntity.ok(savedProject);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Project> modify(@RequestBody Project project, @PathVariable Integer id) {
+        Optional<Project> oProject = projectRepository.findById(id);
+        if (!oProject.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        Project newProject=oProject.get();
+        newProject.setName(project.getName());
+        newProject.setPretender(project.getPretender());
+        newProject.setDeadline(project.getDeadline());
+
+        projectRepository.save(newProject);
+
+        return ResponseEntity.ok(newProject);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Project> delete(@PathVariable Integer id) {
         try {
