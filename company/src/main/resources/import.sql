@@ -2,3 +2,5 @@ insert into project(name, pretender, deadline) values ('Beadandó', 'ELTE', CURR
 insert into project(name, pretender, deadline) values ('ZH', 'BME', '2020-12-13');
 
 insert into site(name, address, type) values ('Északi épület', 'Salgótarján', 'HR');
+
+insert into material(name, quantity, place) values('telefon', 3, 'ELTE');
