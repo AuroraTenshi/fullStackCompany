@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -33,5 +34,8 @@ public class Site {
         INFORMATICS,
         FACTORY
     }
+
+    @OneToMany(mappedBy = "place")
+    private List<Material> materials;
 
 }

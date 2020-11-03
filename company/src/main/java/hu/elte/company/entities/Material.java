@@ -1,5 +1,6 @@
 package hu.elte.company.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -24,6 +25,10 @@ public class Material {
     @Column
     private Integer quantity;
 
-    @Column
-    private String place;
+//    @Column
+//    private String place;
+
+    @ManyToOne
+    @JsonIgnore
+    private Site place;
 }
