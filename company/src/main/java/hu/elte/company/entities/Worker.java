@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -44,4 +45,9 @@ public class Worker {
     @ManyToOne
     @JsonIgnore
     private Site site;
+
+    @ManyToMany
+    @JsonIgnore
+    @JoinColumn
+    private List<Project> projects;
 }

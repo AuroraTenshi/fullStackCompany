@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -27,4 +28,7 @@ public class Project {
     @Column
     @Temporal(TemporalType.DATE)
     private Date deadline;
+
+    @ManyToMany(mappedBy = "projects")
+    private List<Worker> workers;
 }
