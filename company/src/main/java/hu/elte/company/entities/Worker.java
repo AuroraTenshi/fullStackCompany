@@ -1,5 +1,6 @@
 package hu.elte.company.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -39,4 +40,8 @@ public class Worker {
         EMPLOYER,
         GUEST
     }
+
+    @ManyToOne
+    @JsonIgnore
+    private Site site;
 }

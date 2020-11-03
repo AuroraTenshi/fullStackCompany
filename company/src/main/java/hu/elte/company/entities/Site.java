@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.jdbc.Work;
 
 import javax.persistence.*;
 import java.util.List;
@@ -37,5 +38,8 @@ public class Site {
 
     @OneToMany(mappedBy = "place")
     private List<Material> materials;
+
+    @OneToMany(mappedBy = "site")
+    private List<Worker> workers;
 
 }
