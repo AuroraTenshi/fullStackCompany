@@ -1,6 +1,7 @@
 package hu.elte.company.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import hu.elte.company.Enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -36,11 +37,6 @@ public class Worker {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    enum Role {
-        EMPLOYEE,
-        EMPLOYER,
-        GUEST
-    }
 
     @ManyToOne
     @JsonIgnore
