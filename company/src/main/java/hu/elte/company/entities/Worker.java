@@ -25,6 +25,9 @@ public class Worker {
     private String name;
 
     @Column
+    private String password;
+
+    @Column
     private String email;
 
     @Column

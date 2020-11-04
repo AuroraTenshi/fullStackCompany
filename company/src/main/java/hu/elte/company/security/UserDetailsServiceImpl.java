@@ -35,7 +35,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 grantedAuthorities.add(new SimpleGrantedAuthority("EMPLOYER"));
                 break;
         }
-        return User.builder().username(workerName).authorities(grantedAuthorities).build();
+        return User.withDefaultPasswordEncoder()
+                .username(workerEntity.getName())
+                .password(workerEntity.getPassword())
+                .authorities(grantedAuthorities).build();
 
     }
 }

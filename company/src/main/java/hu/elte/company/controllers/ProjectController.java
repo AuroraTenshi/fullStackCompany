@@ -5,6 +5,7 @@ import hu.elte.company.repositories.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -16,6 +17,7 @@ public class ProjectController {
     private ProjectRepository projectRepository;
 
     @GetMapping("")
+    @PreAuthorize("hasRole('EMPLOYER')")
     public ResponseEntity<Iterable<Project>> getAll() {
         Iterable<Project> projects = projectRepository.findAll();
         return ResponseEntity.ok(projects);
