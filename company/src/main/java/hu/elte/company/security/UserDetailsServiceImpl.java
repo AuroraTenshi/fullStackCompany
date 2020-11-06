@@ -26,13 +26,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         switch (workerEntity.getRole()) {
             case GUEST:
-                grantedAuthorities.add(new SimpleGrantedAuthority("GUEST"));
+                grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_GUEST"));
                 break;
             case EMPLOYEE:
-                grantedAuthorities.add(new SimpleGrantedAuthority("EMPLOYEE"));
+                grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_EMPLOYEE"));
                 break;
             case EMPLOYER:
-                grantedAuthorities.add(new SimpleGrantedAuthority("EMPLOYER"));
+                grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_EMPLOYER"));
                 break;
         }
         return User.withDefaultPasswordEncoder()
