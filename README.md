@@ -38,3 +38,7 @@
 * Vendég
   * Regisztráció
   * Bejelentkezés
+
+## Adatbázis terv
+
+![adatbázis terv](img/data.png)
