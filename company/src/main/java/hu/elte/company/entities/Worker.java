@@ -46,7 +46,7 @@ public class Worker {
     private Site site;
 
     @ManyToMany
-    @JsonIgnore
-    @JoinColumn
+//    @JsonIgnore
+    @JoinTable
     private List<Project> projects;
 }

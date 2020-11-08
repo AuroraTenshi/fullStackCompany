@@ -1,5 +1,6 @@
 package hu.elte.company.controllers;
 
+import ch.qos.logback.core.pattern.util.RegularEscapeUtil;
 import hu.elte.company.entities.Project;
 import hu.elte.company.entities.Worker;
 import hu.elte.company.repositories.ProjectRepository;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -72,29 +74,15 @@ public class ProjectController {
         }
     }
 
-    @GetMapping("/{id}/users")
+    @GetMapping("/{id}/workers")
     public ResponseEntity<Iterable<Worker>> getWorkers(@PathVariable Integer id) {
         Optional<Project> oProject = projectRepository.findById(id);
         if (oProject.isPresent()) {
             return ResponseEntity.ok(oProject.get().getWorkers());
         }
-        else {
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.notFound().build();
     }
 
-    @PostMapping("/{id}/workers")
-    public ResponseEntity<Worker> addWorker(@PathVariable Integer id, @RequestBody Worker worker){
-        Optional<Project> oProject=projectRepository.findById(id);
-        if(oProject.isPresent()){
-            Project project=oProject.get();
-            Worker newWorker=workerRepository.save(worker);
-            project.getWorkers().add(newWorker);
-            projectRepository.save(project);
-            return ResponseEntity.ok(newWorker);
-        }else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+    
 
 }

@@ -1,5 +1,6 @@
 package hu.elte.company.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -30,5 +31,6 @@ public class Project {
     private Date deadline;
 
     @ManyToMany(mappedBy = "projects")
+    @JsonIgnore
     private List<Worker> workers;
 }
