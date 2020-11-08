@@ -43,12 +43,14 @@ public class ProjectController {
     }
 
     @PostMapping("")
+    @PreAuthorize("hasRole('EMPLOYER')")
     public ResponseEntity<Project> post(@RequestBody Project project) {
         Project savedProject = projectRepository.save(project);
         return ResponseEntity.ok(savedProject);
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('EMPLOYER')")
     public ResponseEntity<Project> modify(@RequestBody Project project, @PathVariable Integer id) {
         Optional<Project> oProject = projectRepository.findById(id);
         if (!oProject.isPresent()) {
@@ -65,6 +67,7 @@ public class ProjectController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('EMPLOYEE')")
     public ResponseEntity<Project> delete(@PathVariable Integer id) {
         try {
             projectRepository.deleteById(id);
@@ -75,6 +78,7 @@ public class ProjectController {
     }
 
     @GetMapping("/{id}/workers")
+    @PreAuthorize("hasRole('EMPLOYER')")
     public ResponseEntity<Iterable<Worker>> getWorkers(@PathVariable Integer id) {
         Optional<Project> oProject = projectRepository.findById(id);
         if (oProject.isPresent()) {
@@ -82,7 +86,5 @@ public class ProjectController {
         }
         return ResponseEntity.notFound().build();
     }
-
-    
 
 }
