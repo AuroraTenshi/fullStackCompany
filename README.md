@@ -1,4 +1,7 @@
 # fullstackCompany
+## Projectötlet
+A project célja egy céges alkalmazás megalkozása, ami lehetőséget nyújt az alkalmazottak személyes adatainak tárolására, projectek managementjére, és külöböző kellékek (nyersanyagok) igényléseinek lebonyolítására akár több telephelyen.
+
 ## Fejlesztők
 * Pap Gábor
 
