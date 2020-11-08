@@ -42,3 +42,21 @@
 ## Adatbázis terv
 
 ![adatbázis terv](img/data.png)
+
+## Felhasznált technológiák
+
+* Backend:
+
+  * Nyelv: Java
+
+  * Dependeciák:
+
+    * Lombok
+
+    * Spring boot Web
+
+    * Spring boot DevTools
+
+    * H2
+
+    * Spring boot Security
