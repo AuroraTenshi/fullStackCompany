@@ -46,6 +46,10 @@ A project célja egy céges alkalmazás megalkozása, ami lehetőséget nyújt a
 
 ![adatbázis terv](img/data.png)
 
+## Felhasználói eset diagram
+
+![Felhasználói eset diagram](img/UCD.png)
+
 ## Felhasznált technológiák
 
 * Backend:
