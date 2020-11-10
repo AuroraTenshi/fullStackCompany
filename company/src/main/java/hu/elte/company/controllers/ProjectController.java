@@ -1,6 +1,5 @@
 package hu.elte.company.controllers;
 
-import ch.qos.logback.core.pattern.util.RegularEscapeUtil;
 import hu.elte.company.entities.Project;
 import hu.elte.company.entities.Worker;
 import hu.elte.company.repositories.ProjectRepository;
@@ -9,10 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Optional;
 
 @RestController
