@@ -1,23 +1,15 @@
 language: java
-
 jdk: openjdk8
-
-cache: 
+cache:
   directories:
-    - $HOME/.m2
-
+  - "$HOME/.m2"
 before_install: cd company
-
 install: true
-
 script: mvn -B test
-
 deploy:
   skip_cleanup: true
   provider: heroku
-
   api_key:
-    secure: 'eif1Jsg0tFUqKe4LFAC3cwPo7NQTWQXpsYlbYN2GB14E89NiAbjlsynzjE294CuEEOethe5p2lBWNES2MR8anUQ2cHuKRnRHFJPlQdJL0dPuQyU5PyGG1SIRWdyoWOzs5tqSmsuOWEBXi8xLxC8ePRi5MXA9tEkrlj570qrCC7uLtoHLPzuwvZ/SvlhsKQ+zZHLepK4dDNso2p4GHoX1efPIyUxLhf0NwZrDf8tc2NtyLNFY+jUBUW2hC1hAnx3mZL2S2fmsiNY954MRbGSYsrhITM5nvz5CKHYTMa8s01xaziT1qIHGikbfL8I/tXq9Tt9wYuHX/pjTPueg/FPJf48y9aT3Nk1tfeS7Q5SgW3U3XWHK3wNx43sceaYcKahF7Bnev7Zeay2ZnJ5JPk6Co9LUXPJ7Zv/QcKeVip9jYXBj1xWVZxkl03OnO7hHHh1bTKuhg1K+BgJJb9ehb9nkn/0ktq0GCYUzlTwEX/9BxgFPdrwiOc5JJU+TZUOOIVoXoTQk19cOxpddx5+a0rtoQFEcgqqfT+iBceMIP0wNZ0xKWylR24wC7sQTeKYf3eH5JYA8sse227LJLyoARom3nYDL473gY0a/K9CH8ezV+svz7CWrGPumdztR/tNTlG7y+JH2h9h708+skYHOcmlxp89iytBFuY9FZZxpgrgQji4='
-    
+    secure: nWkuOVjpSmJqoTVJBkc16DnkLYsuVjqLuWrDaC2dYCrv9A9ucdlpof7/zxGj0CCW+7/AdfOEz+ynhtKbedHprh/qpOR9axpM6aZDYq6cnEdW2SgWwoo0pUg2Sx6R0uR5nIPnmihO6HA7EzcKcJ3Deo8efb/0CSN6vnXmhAYL/r/x+3+al9uhdaL/GtT1GDcA5fsBT8R/Cm99z8XX7Iax0mO7ufxpghqg5MP7QouWLesjF4v9zZkRnK8mHviFiOrDQ9MyngU6W18vENzcup5dxA1RWu0T6XWrAf8hI+4rXCEgW+3A7jITZfqgRDZM7U3T4YL0wQWHQqGfiYF8R+vLyi7BuYtcr60uY2Se2nLdfHGap6gUj2Vj01DZhof8g+fa3y/vl7u+/ik2lqKvxOLjBL2ovQNBqbpoNWpi/fdF41b283IzieknPjbj9L20QG79kAXJ9sQoDdTIEuXoY0c2XfdcPM91wU3pwTNX/SmcscErQEzgf5VgHSKpQ/Rw7wOsV00DhO4NAqovTLfD9V3Rmi20RSVXGpR27UQW6+SJRXHSrMXd8Z7c7ZhJwrWox25LLq69PU8pRlblTRsEwZDPzy56D32jm80pKOhYDOQtU6zJLyaQMFa9NTUc8R0hh0CZOrm8m2U1iy9eEV9Fe55jXDQFFOmy5Gm7FTPOPapQUys=
   app: fullstack-company-app
   on: master
