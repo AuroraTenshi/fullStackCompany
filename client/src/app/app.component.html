@@ -1,8 +1,22 @@
 <mat-toolbar color="primary">
   <button
    mat-icon-button
+   color="secodary"
+   (click)="sidenav.toggle()"
     >
     <mat-icon>menu</mat-icon>
   </button>
   <span>Fullstack Company</span>
 </mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav
+   #sidenav
+   mode="side"
+   >
+   Sidenav content
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
