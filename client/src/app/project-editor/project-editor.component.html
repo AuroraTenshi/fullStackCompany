@@ -1,0 +1,35 @@
+<h3>Create project</h3>
+
+<form [formGroup]="form" (submit)="submit()">
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input
+        required
+        matInput
+        type="text" 
+        name="name" 
+        formControlName="name" />
+        <mat-error *ngIf="name.invalid">Name is required!</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Pretender</mat-label>
+        <input
+         required
+         matInput 
+         type="text" 
+         name="pretender" 
+         formControlName="pretender" />
+         <mat-error *ngIf="pretender.invalid" >Pretender is required!</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Deadline</mat-label>
+        <input
+          required
+          matInput
+          type="date"
+          name="deadline" 
+          formControlName="deadline" />
+          <mat-error *ngIf="deadline.invalid">Deadline is required!</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary">Create project</button>
+</form>

@@ -1,5 +1,5 @@
 export interface Project{
-    id: number;
+    // id: number;
     name: string;
     pretender: string;
     deadline: Date;

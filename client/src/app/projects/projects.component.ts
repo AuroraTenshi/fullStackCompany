@@ -14,13 +14,13 @@ export class ProjectsComponent implements OnInit {
 
   projects: Project[]=[
     {
-      id: 1,
+      // id: 1,
       name: 'Hálózat kifejlesztés',
       pretender: 'Telekom',
       deadline: new Date('2020-12-31')
     },
     {
-      id: 2,
+      // id: 2,
       name: 'Játékfejlesztés',
       pretender: 'Origin',
       deadline: new Date()
