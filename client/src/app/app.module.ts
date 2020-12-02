@@ -13,6 +13,7 @@ import {MatListModule} from '@angular/material/list';
 import { ProjectsComponent } from './projects/projects.component';
 import { SitesComponent } from './sites/sites.component';
 import { MaterialsComponent } from './materials/materials.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MaterialsComponent } from './materials/materials.component';
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
