@@ -17,6 +17,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { ProjectEditorComponent } from './project-editor/project-editor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from "@angular/material/input";
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { MatInputModule } from "@angular/material/input";
     MatExpansionModule,
     FormsModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

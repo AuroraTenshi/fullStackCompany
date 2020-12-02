@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Project } from '../core/project';
+import { ProjectEditorComponent } from '../project-editor/project-editor.component';
 
 
 @Component({
@@ -10,7 +12,9 @@ import { Project } from '../core/project';
 
 export class ProjectsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private dialog: MatDialog
+  ) { }
 
   projects: Project[]=[
     {
@@ -30,4 +34,9 @@ export class ProjectsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  startCreateProject():void{
+    this.dialog.open(ProjectEditorComponent,{
+      width: '1000px',
+    });
+  }
 }

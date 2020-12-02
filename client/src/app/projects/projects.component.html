@@ -12,4 +12,12 @@
     </mat-expansion-panel>
 </mat-accordion>
 
-<app-project-editor></app-project-editor>
+<button
+  mat-fab
+  color="primary"
+  class="add-button"
+  aria-label="Create project"
+  (click)="startCreateProject()"
+>
+    <mat-icon>add</mat-icon>
+</button>
