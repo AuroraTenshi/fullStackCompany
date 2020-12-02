@@ -1,4 +1,11 @@
-.mat-side-nav{
+.mat-sidenav-container{
     height: calc(100% - 64px);
-    width: 160px;
+}
+
+.mat-side-nav{
+    width: 210px;
+}
+
+main{
+    margin:  20px 20px 0;
 }

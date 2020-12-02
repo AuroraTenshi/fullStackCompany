@@ -8,12 +8,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import {MatSidenavModule} from '@angular/material/sidenav'
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import { ProjectsComponent } from './projects/projects.component';
+import { SitesComponent } from './sites/sites.component';
+import { MaterialsComponent } from './materials/materials.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    ProjectsComponent,
+    SitesComponent,
+    MaterialsComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +29,8 @@ import {MatSidenavModule} from '@angular/material/sidenav'
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
