@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Project } from '../core/project';
-import { ProjectEditorComponent } from '../project-editor/project-editor.component';
+import { ProjectService } from '../core/project.service';
 
 @Component({
   selector: 'app-project',
@@ -16,12 +17,16 @@ export class ProjectComponent implements OnInit {
   @Input()
   showDetails:boolean=true;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private projectService: ProjectService
+  ) { }
 
   ngOnInit(): void {
-    if(!this.project.workers){
-      this.project.workers=[];
-    }
+   if(!this.project){
+     const projectId=parseInt(this.route.snapshot.paramMap.get('id'), 10);
+     this.project = this.projectService.getProject(projectId);
+   }
   }
 
 }
