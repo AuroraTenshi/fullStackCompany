@@ -31,4 +31,11 @@ export class ProjectsComponent implements OnInit {
       width: '1000px',
     });
   }
+
+  startEditProject(project: Project):void{
+    this.dialog.open(ProjectEditorComponent, {
+      width: '1000px',
+      data: project
+    });
+  }
 }

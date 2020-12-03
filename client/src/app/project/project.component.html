@@ -4,6 +4,9 @@
         <button [routerLink]="['/', 'projects', project.id]" mat-raised-button color="primary">
             Show details
         </button>
+        <button mat-raised-button color="secondary" (click)="edit()"> 
+            Edit project
+        </button>
     </div>
 </ng-container>
 

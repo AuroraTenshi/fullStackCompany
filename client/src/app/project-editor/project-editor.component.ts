@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AbstractConstructor } from '@angular/material/core/common-behaviors/constructor';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Project } from '../core/project';
 
 @Component({
   selector: 'app-project-editor',
@@ -9,6 +10,8 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./project-editor.component.scss']
 })
 export class ProjectEditorComponent implements OnInit {
+
+  editing:boolean=false;
 
   public form: FormGroup = this.fb.group({
     name: ['', Validators.required],
@@ -18,8 +21,19 @@ export class ProjectEditorComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private dialogRef: MatDialogRef<ProjectEditorComponent>
-  ) { }
+    private dialogRef: MatDialogRef<ProjectEditorComponent>,
+    @Inject(MAT_DIALOG_DATA) private project: Project
+  ) {
+    if(project){
+      this.form.reset({
+        name: this.project.name,
+        pretender: this.project.pretender,
+        deadline: this.project.deadline,
+      });
+      this.editing=true;
+    }
+
+   }
 
   get name(): AbstractControl{
     return this.form.get('name');

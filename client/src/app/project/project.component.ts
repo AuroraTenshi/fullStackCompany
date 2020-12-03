@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Project } from '../core/project';
 import { ProjectService } from '../core/project.service';
@@ -17,6 +17,9 @@ export class ProjectComponent implements OnInit {
   @Input()
   showDetails:boolean=true;
 
+  @Output()
+  editProject:EventEmitter<Project>=new EventEmitter();
+
   constructor(
     private route: ActivatedRoute,
     private projectService: ProjectService
@@ -29,4 +32,7 @@ export class ProjectComponent implements OnInit {
    }
   }
 
+  edit():void{
+    this.editProject.emit(this.project);
+  }
 }
