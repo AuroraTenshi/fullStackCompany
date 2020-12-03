@@ -3,4 +3,5 @@ export interface Project{
     name: string;
     pretender: string;
     deadline: Date;
+    workers?:string[];
 }

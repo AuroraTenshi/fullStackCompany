@@ -1,0 +1,19 @@
+<p *ngIf="!showDetails"> {{project.name}} </p>
+
+
+
+<ng-container *ngIf="showDetails">
+    <h2> {{project.name}} </h2>
+    <p>{{project.pretender}}</p>
+    <p><strong> {{project.deadline.toLocaleDateString()}} </strong></p>
+    <h3>Workers:</h3>
+    <ng-container *ngIf="project.workers.length > 0">
+        <ol>
+            <li *ngFor="let worker of project.workers"> {{worker}} </li>
+        </ol>
+    </ng-container>
+    <p *ngIf="project.workers.length === 0">
+        Nobody works on this project!
+    </p>
+</ng-container>
+

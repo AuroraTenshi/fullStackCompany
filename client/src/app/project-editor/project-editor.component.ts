@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AbstractConstructor } from '@angular/material/core/common-behaviors/constructor';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-project-editor',
@@ -12,11 +13,12 @@ export class ProjectEditorComponent implements OnInit {
   public form: FormGroup = this.fb.group({
     name: ['', Validators.required],
     pretender: ['', Validators.required],
-    deadline: [null, Validators.required]
+    deadline: ['', Validators.required]
   });
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private dialogRef: MatDialogRef<ProjectEditorComponent>
   ) { }
 
   get name(): AbstractControl{
@@ -35,9 +37,10 @@ export class ProjectEditorComponent implements OnInit {
   }
 
   submit(){
-    if(this.form.invalid){
+    if(!this.form.valid){
       return;
     }
-    console.log(this.form);
+    console.log(this.form.value);
+    this.dialogRef.close(this.form.value);
   }
 }

@@ -21,13 +21,26 @@ export class ProjectsComponent implements OnInit {
       // id: 1,
       name: 'Hálózat kifejlesztés',
       pretender: 'Telekom',
-      deadline: new Date('2020-12-31')
+      deadline: new Date('2020-12-31'),
+      workers: ['János', 'Miklós']
     },
     {
       // id: 2,
       name: 'Játékfejlesztés',
       pretender: 'Origin',
-      deadline: new Date()
+      deadline: new Date(),
+      workers:[]
+    },
+    {
+      name: 'Facipő készítés',
+      pretender: 'Hollandia',
+      deadline: new Date('3000-12-31'),
+    },
+    {
+      name:'No name',
+      pretender: 'Nobody',
+      deadline: new Date('2022-12-11'),
+      workers:['én', 'te', 'ő', 'mi', 'ti', 'ők']
     }
   ];
 

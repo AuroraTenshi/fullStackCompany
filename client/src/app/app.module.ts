@@ -18,6 +18,7 @@ import { ProjectEditorComponent } from './project-editor/project-editor.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from "@angular/material/input";
 import {MatDialogModule} from '@angular/material/dialog';
+import { ProjectComponent } from './project/project.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     ProjectsComponent,
     SitesComponent,
     MaterialsComponent,
-    ProjectEditorComponent
+    ProjectEditorComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
