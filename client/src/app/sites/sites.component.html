@@ -1,1 +1,13 @@
-<p>sites works!</p>
+<h2>Sites</h2>
+
+<mat-accordion>
+    <mat-expansion-panel hideToggle *ngFor="let site of sites">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{site.name}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Address: {{site.address}}</p>
+      <p> {{site.type}} </p>
+    </mat-expansion-panel>
+</mat-accordion>
