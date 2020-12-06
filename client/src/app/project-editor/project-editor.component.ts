@@ -16,7 +16,7 @@ export class ProjectEditorComponent implements OnInit {
   public form: FormGroup = this.fb.group({
     name: ['', Validators.required],
     pretender: ['', Validators.required],
-    deadline: ['', Validators.required]
+    deadline: [null, Validators.required]
   });
 
   constructor(

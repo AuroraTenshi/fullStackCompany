@@ -10,16 +10,18 @@
     </div>
 </ng-container>
 
-
 <ng-container *ngIf="showDetails">
     <h2> {{ project.name }} </h2>
     <p>{{ project.pretender }}</p>
     <p><strong> {{ project.deadline.toLocaleDateString() }} </strong></p>
     <h3>Workers:</h3>
     <ng-container *ngIf="project.workers && project.workers.length !== 0">
-        <ol>
-            <li *ngFor="let worker of project.workers"> {{ worker }} </li>
-        </ol>
+        <div class="workers" *ngFor="let worker of project.workers">
+            <p class="worker-name">Name: {{worker.name}} </p>
+            <p>Email: {{worker.email}} </p>
+            <p>Payment: {{worker.payment}} </p>
+            <p>Role: {{worker.role}} </p>
+        </div>
     </ng-container>
     <p *ngIf=" !project.workers || project.workers.length === 0">
         Nobody works on this project!
