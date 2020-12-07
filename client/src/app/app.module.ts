@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from "@angular/material/input";
 import {MatDialogModule} from '@angular/material/dialog';
 import { ProjectComponent } from './project/project.component';
+import { SiteEditorComponent } from './site-editor/site-editor.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ProjectComponent } from './project/project.component';
     SitesComponent,
     MaterialsComponent,
     ProjectEditorComponent,
-    ProjectComponent
+    ProjectComponent,
+    SiteEditorComponent,
   ],
   imports: [
     BrowserModule,

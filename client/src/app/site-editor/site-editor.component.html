@@ -1,0 +1,45 @@
+<h2>Create site</h2>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input
+            required
+            matInput 
+            type="text" 
+            name="name"
+            formControlName="name"
+         />
+         <mat-error *ngIf="name.invalid">This field is required!</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>
+            Address
+        </mat-label>
+        <input 
+            required
+            matInput 
+            type="text" 
+            name="address"
+            formControlName="address"
+        />
+        <mat-error *ngIf="address.invalid">This field is required!</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Type</mat-label>
+        <select
+            required
+            matNativeControl
+            name="type"
+            formControlName="type"
+        >
+            <option value="" selected></option>
+            <option value="HR">HR</option>
+            <option value="INFORMATICS">INFORMATICS</option>
+            <option value="FACTORY">FACTORY</option>
+        </select>
+        <mat-error *ngIf="type.invalid">This field is required!</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary">Create</button>
+    <button type="button" mat-raised-button color="secondary" mat-dialog-close>Close</button>
+</form>
