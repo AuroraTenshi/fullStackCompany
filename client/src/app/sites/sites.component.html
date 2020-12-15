@@ -1,22 +1,20 @@
 <h2>Sites</h2>
 
 <mat-accordion>
-    <mat-expansion-panel hideToggle *ngFor="let site of sites">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          {{site.name}}
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <p> {{site.address}} </p>
-      <p> {{site.type}} </p>
-    </mat-expansion-panel>
+  <mat-expansion-panel hideToggle *ngFor="let site of sites">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <p> {{site.name}} </p>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <app-site
+     [site]="site"
+     [showDetails]="false"
+     >
+    </app-site>
+  </mat-expansion-panel>
 </mat-accordion>
 
-<button
-  class="add-button"
-  mat-fab color="primary"
-  aria-label="Create site"
-  (click)="startCreateSite()"
->
+<button class="add-button" mat-fab color="primary" aria-label="Create site" (click)="startCreateSite()">
   <mat-icon>add</mat-icon>
 </button>

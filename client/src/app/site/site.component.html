@@ -1,0 +1,38 @@
+<ng-container *ngIf="!showDetails">
+    <!-- <p> {{site.address}} </p>
+    <p> {{site.type}} </p> -->
+    <div class="buttons">
+        <button [routerLink]="['/', 'sites', site.id]" mat-raised-button color="primary">Show details</button>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="showDetails">
+    <h2> {{site.name}} </h2>
+    <p> {{site.address}} </p>
+    <p> {{site.type}} </p>
+    <div>
+        <h3>Workers:</h3>
+        <ng-container *ngIf="site.workers && site.workers.length !== 0">
+            <div class="workers" *ngFor="let worker of site.workers">
+                <p class="worker-name">Name: {{worker.name}} </p>
+                <p>Email: {{worker.email}} </p>
+                <p>Payment: {{worker.payment}} </p>
+                <p>Role: {{worker.role}} </p>
+            </div>
+        </ng-container>
+        <p *ngIf=" !site.workers || site.workers.length === 0">
+            Nobody works on this project!
+        </p>
+    </div>
+    <div>
+        <h3>Materials</h3>
+        <ng-container *ngIf="site.materials && site.materials.length > 0">
+            <div *ngFor="let material of site.materials">
+                <p> {{material.name}}: {{material.quantity}} </p>
+            </div>
+        </ng-container>
+        <p *ngIf="!site.materials || site.materials.length === 0">
+            No materials
+        </p>
+    </div>
+</ng-container>

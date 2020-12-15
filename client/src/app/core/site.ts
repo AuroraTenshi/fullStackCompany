@@ -1,3 +1,4 @@
+import { Material } from './material';
 import { Worker } from './worker';
 
 export interface Site{
@@ -5,6 +6,8 @@ export interface Site{
     name: string;
     address: string;
     type: Type;
+    workers?: Worker[];
+    materials?:Material[];
 }
 
 export enum Type{

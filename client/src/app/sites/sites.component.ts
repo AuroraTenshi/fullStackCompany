@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Site, Type } from '../core/site';
+import { SiteService } from '../core/site.service';
 import {  Role } from '../core/worker';
 import { SiteEditorComponent } from '../site-editor/site-editor.component';
 
@@ -11,23 +12,15 @@ import { SiteEditorComponent } from '../site-editor/site-editor.component';
 })
 export class SitesComponent implements OnInit {
 
-  sites: Site[]=[{
-    id: 1,
-    name: 'Keleti pályaudvar',
-    address: 'Budapest, Kerepesi út 2-4',
-    type: Type.FACTORY,
-  },{
-    id: 2,
-    name: 'Nyugati szárny',
-    address: 'Győr, Dér utca 3/e',
-    type: Type.HR,
-  }]
+  sites: Site[];
 
   constructor(
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private siteService: SiteService
   ) { }
 
   ngOnInit(): void {
+    this.sites=this.siteService.getSites();
   }
 
   startCreateSite():void{
