@@ -28,4 +28,11 @@ export class SitesComponent implements OnInit {
       width: '1000px',
     });
   }
+
+  startEditSite(site: Site):void{
+    this.dialog.open(SiteEditorComponent,{
+      width: '1000px',
+      data: site,
+    })
+  }
 }

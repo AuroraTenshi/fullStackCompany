@@ -3,6 +3,7 @@
     <p> {{site.type}} </p> -->
     <div class="buttons">
         <button [routerLink]="['/', 'sites', site.id]" mat-raised-button color="primary">Show details</button>
+        <button mat-raised-button color="secondary" (click)="edit()">Edit site</button>
     </div>
 </ng-container>
 
@@ -27,9 +28,9 @@
     <div>
         <h3>Materials</h3>
         <ng-container *ngIf="site.materials && site.materials.length > 0">
-            <div *ngFor="let material of site.materials">
-                <p> {{material.name}}: {{material.quantity}} </p>
-            </div>
+            <ol>
+                <li *ngFor="let material of site.materials"> {{material.name}}: {{material.quantity}} </li>
+            </ol>
         </ng-container>
         <p *ngIf="!site.materials || site.materials.length === 0">
             No materials

@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Injector, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { AbstractConstructor } from '@angular/material/core/common-behaviors/constructor';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Site, Type } from '../core/site';
 
 @Component({
@@ -19,6 +18,8 @@ export class SiteEditorComponent implements OnInit {
   // title:string='';
   // address:string='';
   // type:Type=null;
+
+  editing: boolean = false;
 
   public form: FormGroup=this.fb.group({
     name: ['', Validators.required],
@@ -41,8 +42,16 @@ export class SiteEditorComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private dialog: MatDialogRef<SiteEditorComponent>,
+    @Inject(MAT_DIALOG_DATA) private site: Site
   ) {
-
+    if (site) {
+      this.form.reset({
+        name: this.site.name,
+        address: this.site.address,
+        type: this.site.type,
+      });
+      this.editing = true;
+    }
   }
 
   ngOnInit(): void {

@@ -1,5 +1,5 @@
 import { Route } from '@angular/compiler/src/core';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Site } from '../core/site';
 import { SiteService } from '../core/site.service';
@@ -17,6 +17,9 @@ export class SiteComponent implements OnInit {
   @Input()
   showDetails:boolean=true;
 
+  @Output()
+  editSite: EventEmitter<Site> = new EventEmitter();
+
   constructor(
     private route: ActivatedRoute,
     private siteService: SiteService
@@ -29,4 +32,7 @@ export class SiteComponent implements OnInit {
     }
   }
 
+  edit():void{
+    this.editSite.emit(this.site);
+  }
 }
