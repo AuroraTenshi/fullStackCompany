@@ -4,5 +4,5 @@ export interface Material {
     id: number;
     name: string;
     quantity: number;
-    // place:Site
+    place?:Site
 }

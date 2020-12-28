@@ -1,0 +1,29 @@
+<ng-container *ngIf="!showDetails">
+    
+    <button [routerLink]="['/', 'materials', material.id]" mat-raised-button color="primary">
+        Show details
+    </button>
+    <button mat-raised-button color="secondary" (click)="edit()" >Edit material</button> 
+</ng-container>
+
+<ng-container *ngIf="showDetails">
+    <h2>{{material.name}}</h2>
+    <p>{{material.quantity}}</p>
+    <ng-container *ngIf="!!material.place">
+        <div >
+            <p>Place:</p>
+            <ul style="list-style-type: none;">
+                <li>{{material.place.name}}</li>
+                <li>{{material.place.address}}</li>
+                <li>{{material.place.type}}</li>
+            </ul>
+        </div>
+    </ng-container>
+    
+    <ng-container *ngIf="!material.place">
+        <div>
+            <p><em>No place</em></p>
+        </div>
+    </ng-container>
+    
+</ng-container>

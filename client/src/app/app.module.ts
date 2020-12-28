@@ -21,6 +21,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ProjectComponent } from './project/project.component';
 import { SiteEditorComponent } from './site-editor/site-editor.component';
 import { SiteComponent } from './site/site.component';
+import { MaterialEditorComponent } from './material-editor/material-editor.component';
+import { MaterialComponent } from './material/material.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { SiteComponent } from './site/site.component';
     ProjectComponent,
     SiteEditorComponent,
     SiteComponent,
+    MaterialEditorComponent,
+    MaterialComponent,
   ],
   imports: [
     BrowserModule,

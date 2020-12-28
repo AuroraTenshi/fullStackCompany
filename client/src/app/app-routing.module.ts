@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { MaterialComponent } from './material/material.component';
 import { MaterialsComponent } from './materials/materials.component';
 import { ProjectComponent } from './project/project.component';
 import { ProjectsComponent } from './projects/projects.component';
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'materials',
     component: MaterialsComponent
+  },
+  {
+    path: 'materials/:id',
+    component: MaterialComponent
   },
   {
     path: '**',

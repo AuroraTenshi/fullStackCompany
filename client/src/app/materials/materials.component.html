@@ -1,1 +1,29 @@
-<p>materials works!</p>
+<h2>Materials</h2>
+
+<!-- <div>
+    <h3>Name:</h3>
+    <p>Quantity:</p>
+    <p>Place</p>
+</div> -->
+<mat-accordion>
+    <mat-expansion-panel hideToogle *ngFor="let material of materials">
+        <mat-expansion-panel-header>
+            <mat-panel-title> {{material.name}} </mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-material
+        [material]="material"
+        [showDetails]="false"
+        (editMaterial)="startEditMaterial($event)"
+       >
+       </app-material>
+
+    </mat-expansion-panel>
+</mat-accordion>
+<button
+ class="add-button"
+ mat-fab color="primary"
+ aria-label="Create material"
+ (click)="startCreateMaterial()"
+>
+    <mat-icon>add</mat-icon>
+</button>
