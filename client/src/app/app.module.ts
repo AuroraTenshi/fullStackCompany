@@ -23,6 +23,7 @@ import { SiteEditorComponent } from './site-editor/site-editor.component';
 import { SiteComponent } from './site/site.component';
 import { MaterialEditorComponent } from './material-editor/material-editor.component';
 import { MaterialComponent } from './material/material.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { MaterialComponent } from './material/material.component';
     MatInputModule,
     ReactiveFormsModule,
     MatDialogModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

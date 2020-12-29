@@ -27,17 +27,15 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Type</mat-label>
-        <select
+        <mat-select
             required
-            matNativeControl
             name="type"
             formControlName="type"
         >
-            <option value="" selected></option>
-            <option value="HR">HR</option>
-            <option value="INFORMATICS">INFORMATICS</option>
-            <option value="FACTORY">FACTORY</option>
-        </select>
+            <mat-option *ngFor="let type of types" [value]="type.value">
+                {{type.label}}
+            </mat-option>
+        </mat-select>
         <mat-error *ngIf="type.invalid">This field is required!</mat-error>
     </mat-form-field>
     <button mat-raised-button color="primary">Create</button>

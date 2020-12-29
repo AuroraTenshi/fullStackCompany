@@ -39,6 +39,17 @@ export class SiteEditorComponent implements OnInit {
     return this.form.get('type');
   }
 
+  types=[{
+    label: 'HR',
+    value: 'HR'
+  },{
+    label: 'Informatics',
+    value: 'INFORMATICS'
+  },{
+    label: 'Factory',
+    value: 'FACTORY'
+  }]
+
   constructor(
     private fb: FormBuilder,
     private dialog: MatDialogRef<SiteEditorComponent>,

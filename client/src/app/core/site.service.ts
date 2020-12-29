@@ -52,4 +52,8 @@ export class SiteService {
   getSite(id: number){
     return this.sites.find(site => site.id === id);
   }
+  
+  createSite(site:Site):void{
+    this.sites.push(site);
+  }
 }
