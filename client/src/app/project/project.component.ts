@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../core/auth.service';
 import { Project } from '../core/project';
 import { ProjectService } from '../core/project.service';
+import { Role } from '../core/worker';
 
 @Component({
   selector: 'app-project',
@@ -15,24 +17,35 @@ export class ProjectComponent implements OnInit {
   project: Project;
 
   @Input()
-  showDetails:boolean=true;
+  showDetails: boolean = true;
 
   @Output()
-  editProject:EventEmitter<Project>=new EventEmitter();
+  editProject: EventEmitter<Project> = new EventEmitter();
 
   constructor(
     private route: ActivatedRoute,
-    private projectService: ProjectService
+    private projectService: ProjectService,
+    private authService: AuthService,
+    private router:Router
   ) { }
 
-  ngOnInit(): void {
-   if(!this.project){
-     const projectId=parseInt(this.route.snapshot.paramMap.get('id'), 10);
-     this.project = this.projectService.getProject(projectId);
-   }
+  async ngOnInit(): Promise<void> {
+    if (!this.project) {
+      const projectId = parseInt(this.route.snapshot.paramMap.get('id'), 10);
+      this.project = await this.projectService.getProject(projectId);
+    }
   }
 
-  edit():void{
+  edit(): void {
     this.editProject.emit(this.project);
+  }
+
+  isEmployer():boolean{
+    return this.authService.isEmployer();
+  }
+
+  async deleteProject(id: number):Promise<void>{
+    await this.projectService.deleteProject(id);
+    this.router.navigate(['/', 'projects']);
   }
 }

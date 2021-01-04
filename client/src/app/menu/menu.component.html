@@ -1,5 +1,10 @@
-<mat-nav-list>
+<mat-nav-list *ngIf="isLoggedIn">
     <a mat-list-item routerLink="projects" routerLinkActive="active">Projects</a>
     <a mat-list-item routerLink="sites" routerLinkActive="active">Sites</a>
     <a mat-list-item routerLink="materials" routerLinkActive="active">Materials</a>
+</mat-nav-list>
+
+<mat-nav-list *ngIf="!isLoggedIn">
+    <a mat-list-item routerLink="login" routerLinkActive="active">Log in</a>
+    <a mat-list-item routerLink="register" routerLinkActive="active">Register</a>
 </mat-nav-list>

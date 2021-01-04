@@ -1,0 +1,51 @@
+<h2>Registration</h2>
+
+<form [formGroup]="form" (submit)="submit()">
+    <mat-form-field appearence="fill">
+        <mat-label>Name</mat-label>
+        <input
+            required
+            matInput
+            type="text"
+            name="name"
+            formControlName="name"
+        />
+        <mat-error *ngIf="name.invalid">This field is required!</mat-error>
+    </mat-form-field>
+    <mat-form-field appearence="fill">
+        <mat-label>Email</mat-label>
+        <input
+            required
+            matInput
+            name="email"
+            type="email"
+            formControlName="email"
+        />
+        <mat-error *ngIf="email.invalid">This field is required!</mat-error>
+    </mat-form-field>
+    <mat-form-field appearence="fill">
+        <mat-label>Password</mat-label>
+        <input 
+            required
+            matInput
+            name="password"
+            type="password"
+            formControlName="password"
+        />
+        <mat-error *ngIf="password.invalid">This field is invalid!</mat-error>
+    </mat-form-field>
+    <mat-form-field appearence="fill">
+        <mat-label>Payment</mat-label>
+        <input 
+            required
+            matInput
+            name="payment"
+            type="number"
+            formControlName="payment"
+        />
+        <mat-error *ngIf="payment.invalid">This field is invalid!</mat-error>
+    </mat-form-field>
+    <div class="buttons">
+        <button mat-raised-button color="primary">Sign up</button>
+      </div>
+    </form>

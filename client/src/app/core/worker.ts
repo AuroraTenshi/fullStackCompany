@@ -1,3 +1,5 @@
+import { Project } from "./project";
+
 export class Worker{
     id: number;
     name: string;
@@ -5,6 +7,7 @@ export class Worker{
     email:string;
     payment: number;
     role: Role;
+    projects?:Project[]=[];
 }
 
 export enum Role{

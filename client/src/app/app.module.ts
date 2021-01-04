@@ -17,13 +17,16 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { ProjectEditorComponent } from './project-editor/project-editor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from "@angular/material/input";
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ProjectComponent } from './project/project.component';
 import { SiteEditorComponent } from './site-editor/site-editor.component';
 import { SiteComponent } from './site/site.component';
 import { MaterialEditorComponent } from './material-editor/material-editor.component';
 import { MaterialComponent } from './material/material.component';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,8 @@ import {MatSelectModule} from '@angular/material/select';
     SiteComponent,
     MaterialEditorComponent,
     MaterialComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     ReactiveFormsModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

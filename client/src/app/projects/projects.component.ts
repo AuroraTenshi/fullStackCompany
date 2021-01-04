@@ -22,20 +22,29 @@ export class ProjectsComponent implements OnInit {
 
 
 
-  ngOnInit(): void {
-    this.projects=this.projectService.getProjects();
+  async ngOnInit(): Promise<void> {
+    this.projects= await this.projectService.getProjects();
   }
 
-  startCreateProject(): void {
-    this.dialog.open(ProjectEditorComponent, {
+  async startCreateProject(): Promise<void> {
+    const createDialog=this.dialog.open(ProjectEditorComponent, {
       width: '1000px',
     });
+
+    const projectToCreate=await createDialog.afterClosed().toPromise<Project>();
+    const createdProject=await this.projectService.createProject(projectToCreate);
+    this.projects.push(createdProject);
   }
 
-  startEditProject(project: Project):void{
-    this.dialog.open(ProjectEditorComponent, {
+  async startEditProject(project: Project): Promise<void>{
+    const modifyDialog=this.dialog.open(ProjectEditorComponent, {
       width: '1000px',
       data: project
     });
+
+    const projectToModify=await modifyDialog.afterClosed().toPromise<Project>();
+    const modifiedProject=await this.projectService.editProject(project.id, projectToModify);
+    const index = this.projects.indexOf(project);
+    this.projects.splice(index, 1, modifiedProject);
   }
 }

@@ -3,6 +3,7 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span>Fullstack Company</span>
+  <button *ngIf="isLoggedIn" mat-button (click)="logout()">Log out</button>
 </mat-toolbar>
 
 <mat-sidenav-container>

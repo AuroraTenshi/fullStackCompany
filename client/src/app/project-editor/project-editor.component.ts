@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { AbstractConstructor } from '@angular/material/core/common-behaviors/constructor';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Project } from '../core/project';
+import { ProjectService } from '../core/project.service';
 
 @Component({
   selector: 'app-project-editor',
@@ -22,7 +23,8 @@ export class ProjectEditorComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<ProjectEditorComponent>,
-    @Inject(MAT_DIALOG_DATA) private project: Project
+    @Inject(MAT_DIALOG_DATA) private project: Project,
+    private projectService: ProjectService
   ) {
     if(project){
       this.form.reset({
@@ -55,6 +57,7 @@ export class ProjectEditorComponent implements OnInit {
       return;
     }
     console.log(this.form.value);
+
     this.dialogRef.close(this.form.value);
   }
 }
