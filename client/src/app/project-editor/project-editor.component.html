@@ -32,7 +32,7 @@
           <mat-error *ngIf="deadline.invalid">Deadline is required!</mat-error>
     </mat-form-field>
     <div mat-dialog-actions class="buttons">
-        <button mat-raised-button color="primary">Create project</button>
+        <button mat-raised-button color="primary"> {{editing ? 'Edit' : 'Create'}} project</button>
         <button mat-raised-button type="button" color="secondary" mat-dialog-close>Close</button>
     </div>
     

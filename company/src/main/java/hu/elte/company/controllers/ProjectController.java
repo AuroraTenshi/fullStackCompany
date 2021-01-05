@@ -1,5 +1,6 @@
 package hu.elte.company.controllers;
 
+import hu.elte.company.Enums.Role;
 import hu.elte.company.entities.Project;
 import hu.elte.company.entities.Worker;
 import hu.elte.company.repositories.ProjectRepository;
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Optional;
 
 @CrossOrigin
@@ -85,4 +87,21 @@ public class ProjectController {
         return ResponseEntity.notFound().build();
     }
 
+    @PostMapping("/{id}/workers")
+    public ResponseEntity<Worker> postWorkers(@PathVariable Integer id, @RequestBody Worker worker){
+        Optional<Project> oProject=projectRepository.findById(id);
+        if(!oProject.isPresent()){
+            return ResponseEntity.notFound().build();
+        }
+        else{
+            Project project= oProject.get();
+            if(worker.getRole()==null){
+                worker.setRole(Role.EMPLOYEE);
+            }
+            Worker newWorker=workerRepository.save(worker);
+            project.getWorkers().add(newWorker);
+            projectRepository.save(project);
+            return ResponseEntity.ok(newWorker);
+        }
+    }
 }
