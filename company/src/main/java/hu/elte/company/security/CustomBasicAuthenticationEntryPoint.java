@@ -1,0 +1,28 @@
+package hu.elte.company.security;
+
+import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.security.sasl.AuthenticationException;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class CustomBasicAuthenticationEntryPoint extends BasicAuthenticationEntryPoint {
+    public void commence(final HttpServletRequest request,
+                         final HttpServletResponse response,
+                         final AuthenticationException authException
+    ) throws IOException {
+        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        response.addHeader("WWW-Authenticate", "Basic realm="+getRealmName()+"");
+
+        PrintWriter writer=response.getWriter();
+        writer.println("HTTP STATUS 401 : "+authException.getMessage());
+    }
+
+    @Override
+    public void afterPropertiesSet() {
+        setRealmName("MY REALM");
+        super.afterPropertiesSet();
+    }
+}

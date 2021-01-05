@@ -44,8 +44,7 @@ public class Worker {
     @JsonIgnore
     private Site site;
 
-    @ManyToMany
-//    @JsonIgnore
-    @JoinTable
+    @ManyToMany(mappedBy = "workers")
+    @JsonIgnore
     private List<Project> projects;
 }

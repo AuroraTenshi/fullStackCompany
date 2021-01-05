@@ -19,7 +19,7 @@ public class MaterialController {
     private MaterialRepository materialRepository;
 
     @GetMapping("")
-    @PreAuthorize("hasAnyRole('EMPLOYEE', 'EMPLOYER', 'GUEST')")
+//    @PreAuthorize("hasAnyRole('EMPLOYEE', 'EMPLOYER', 'GUEST')")
     public ResponseEntity<Iterable<Material>> getAll(@RequestParam(required = false) String name) {
         Iterable<Material> materials;
         if (name != null) {
@@ -32,7 +32,7 @@ public class MaterialController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('EMPLOYEE', 'EMPLOYER', 'GUEST')")
+//    @PreAuthorize("hasAnyRole('EMPLOYEE', 'EMPLOYER', 'GUEST')")
     public ResponseEntity<Material> get(@PathVariable Integer id) {
         Optional<Material> oMaterial = materialRepository.findById(id);
         if (!oMaterial.isPresent()) {
@@ -43,14 +43,14 @@ public class MaterialController {
     }
 
     @PostMapping("")
-    @PreAuthorize("hasAnyRole('EMPLOYEE', 'EMPLOYER')")
+//    @PreAuthorize("hasAnyRole('EMPLOYEE', 'EMPLOYER')")
     public ResponseEntity<Material> post(@RequestBody Material material) {
         Material savedMaterial = materialRepository.save(material);
         return ResponseEntity.ok(savedMaterial);
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAnyRole('EMPLOYEE', 'EMPLOYER')")
+//    @PreAuthorize("hasAnyRole('EMPLOYEE', 'EMPLOYER')")
     public ResponseEntity<Material> delete(@PathVariable Integer id) {
         try {
             materialRepository.deleteById(id);

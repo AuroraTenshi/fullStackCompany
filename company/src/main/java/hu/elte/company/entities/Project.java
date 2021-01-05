@@ -30,7 +30,7 @@ public class Project {
     @Temporal(TemporalType.DATE)
     private Date deadline;
 
-    @ManyToMany(mappedBy = "projects")
-    @JsonIgnore
+    @ManyToMany
+    @JoinTable
     private List<Worker> workers;
 }
