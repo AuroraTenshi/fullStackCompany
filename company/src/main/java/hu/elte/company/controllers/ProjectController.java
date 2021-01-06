@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -23,6 +24,9 @@ public class ProjectController {
 
     @Autowired
     private WorkerRepository workerRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @GetMapping("")
 //    @PreAuthorize("hasRole('EMPLOYER')")
@@ -98,6 +102,7 @@ public class ProjectController {
             if(worker.getRole()==null){
                 worker.setRole(Role.EMPLOYEE);
             }
+            worker.setPassword(passwordEncoder.encode(worker.getPassword()));
             Worker newWorker=workerRepository.save(worker);
             project.getWorkers().add(newWorker);
             projectRepository.save(project);
