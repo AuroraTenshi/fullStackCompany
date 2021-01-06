@@ -1,4 +1,4 @@
-<h2>Login</h2>
+<h2 mat-dialog-title>Login</h2>
 
 <form [formGroup]="form" (submit)="submit()">
   <mat-form-field appearance="fill">
@@ -10,7 +10,7 @@
       name="name"
       formControlName="name"
     />
-    <mat-error *ngIf="name.invalid">This field is required.</mat-error>
+    <mat-error *ngIf="name.invalid">Name is required.</mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Password</mat-label>
@@ -21,7 +21,7 @@
       name="password"
       formControlName="password"
     />
-    <mat-error *ngIf="password.invalid">This field is required.</mat-error>
+    <mat-error *ngIf="password.invalid">Password is required.</mat-error>
   </mat-form-field>
   <div class="buttons">
     <button mat-raised-button color="primary">Login</button>

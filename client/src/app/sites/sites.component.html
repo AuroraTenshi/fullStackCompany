@@ -4,14 +4,14 @@
   <mat-expansion-panel hideToggle *ngFor="let site of sites">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <p> {{site.name}} </p>
+        {{site.name}}
       </mat-panel-title>
     </mat-expansion-panel-header>
     <app-site
-     [site]="site"
-     [showDetails]="false"
+     [site]="site" 
+     [showDetails]="false" 
      (editSite)="startEditSite($event)"
-     >
+    >
     </app-site>
   </mat-expansion-panel>
 </mat-accordion>

@@ -31,12 +31,12 @@ export class AuthService {
       const token = btoa(`${name}:${password}`);
       httpOptions.headers = httpOptions.headers.set('Authorization', `Basic ${token}`);
       const worker = await this.httpClient.post<Worker>(`${this.authLink}/authenticate`, {}, httpOptions).toPromise();
-      if(!worker.projects){
-        worker.projects=[];
+      if (!worker.projects) {
+        worker.projects = [];
       }
       this.isLoggedIn = true;
       this.worker = worker;
-      
+
       this.router.navigate(['/projects']);
       return Promise.resolve(this.worker);
     } catch (e) {
@@ -51,8 +51,8 @@ export class AuthService {
     this.worker = null;
   }
 
-  public isEmployer():boolean{
-    return this.worker.role===Role.Employer;
+  public isEmployer(): boolean {
+    return this.worker.role === Role.Employer;
   }
 
 }

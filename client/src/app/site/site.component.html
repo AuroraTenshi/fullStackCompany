@@ -1,6 +1,6 @@
 <ng-container *ngIf="!showDetails">
-    <!-- <p> {{site.address}} </p>
-    <p> {{site.type}} </p> -->
+    <p> {{site.address}} </p>
+    <p> {{site.type}} </p>
     <div class="buttons">
         <button [routerLink]="['/', 'sites', site.id]" mat-raised-button color="primary">Show details</button>
         <button mat-raised-button color="secondary" (click)="edit()">Edit site</button>
@@ -21,7 +21,7 @@
                 <p>Role: {{worker.role}} </p>
             </div>
         </ng-container>
-        <p *ngIf=" !site.workers || site.workers.length === 0">
+        <p *ngIf="!site.workers || site.workers.length === 0">
             Nobody works on this project!
         </p>
     </div>

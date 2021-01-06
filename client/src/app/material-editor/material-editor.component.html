@@ -9,7 +9,7 @@
          type="text"
          formControlName="name"
         />
-        <mat-error *ngIf="name.invalid">This field is required!</mat-error>
+        <mat-error *ngIf="name.invalid">Name is required!</mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Quantity</mat-label>
@@ -19,8 +19,8 @@
          type="number"
          formControlName="quantity"
         />
-        <mat-error *ngIf="quantity.invalid">This field is required!</mat-error>
+        <mat-error *ngIf="quantity.invalid">Quantity is required!</mat-error>
     </mat-form-field>
-    <button mat-raised-button color="primary">Create</button>
+    <button mat-raised-button color="primary">{{editing ? 'Edit' : 'Create'}} material</button>
     <button type="button" mat-raised-button color="secondary" mat-dialog-close>Close</button>
 </form>

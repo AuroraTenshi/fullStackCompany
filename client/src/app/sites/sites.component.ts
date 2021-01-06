@@ -16,7 +16,7 @@ export class SitesComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private siteService: SiteService
+    private siteService: SiteService,
   ) { }
 
   ngOnInit(): void {

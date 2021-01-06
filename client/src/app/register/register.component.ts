@@ -33,13 +33,14 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder
+    
   ) { }
 
   ngOnInit(): void {
   }
 
   submit(): void {
-    if (!this.form.invalid) {
+    if (!this.form.valid) {
       return;
     }
     console.log(this.form.value);
