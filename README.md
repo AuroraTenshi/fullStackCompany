@@ -67,3 +67,8 @@ A project célja egy céges alkalmazás megalkozása, ami lehetőséget nyújt a
     * H2
 
     * Spring boot Security
+    
+## Nem funkcionális követelmények
+
+* Az alkalmazás hibamentessége
+* A belépési rendszer biztonságossága
