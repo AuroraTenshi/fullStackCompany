@@ -114,6 +114,9 @@ A project célja egy céges alkalmazás megalkozása, ami lehetőséget nyújt a
   * GET /workers/{id}/projects - Adott alkalmazott projectjeinek megtekintése
   * POST /workers/{id}/projects - Adott alkalmazott projectjeinek módosítása
   
+* Egy végpont bemutatása: GET /sites
+  * A felhasználó GET kérést küld a /sites végpontra, és ha tartalmaz érvényes tokent, akkor a szerver vissszaküldi a felhasználónak a telephelyek listáját
+
 ## Nem funkcionális követelmények
 
 * Az alkalmazás hibamentessége
