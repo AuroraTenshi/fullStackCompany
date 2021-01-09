@@ -68,6 +68,15 @@ A project célja egy céges alkalmazás megalkozása, ami lehetőséget nyújt a
 
     * Spring boot Security
     
+## Szakterületi fogalmak
+
+* Project
+* Telephely
+* Beosztás
+* Igénylő
+* Nyersanyag
+* Igénylés
+
 ## Nem funkcionális követelmények
 
 * Az alkalmazás hibamentessége
