@@ -77,6 +77,17 @@ A project célja egy céges alkalmazás megalkozása, ami lehetőséget nyújt a
 * Nyersanyag
 * Igénylés
 
+## Backend könyvtárstruktúra
+* main
+  * java
+    * controllers - Kontroller osztályok csomagja
+    * entities - Entitás osztályok csomagja
+    * Enums - Enum (szerepek) csomagja
+    * repositories - Tároló osztályok csomagja
+    * security - Biztonsági osztályok csomagja
+  * resources - Az adatbázis csomagja
+* test - tesztosztályok csomagja
+
 ## Nem funkcionális követelmények
 
 * Az alkalmazás hibamentessége
