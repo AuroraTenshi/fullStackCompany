@@ -101,6 +101,18 @@ A project célja egy céges alkalmazás megalkozása, ami lehetőséget nyújt a
   * DELETE /projects/{id} - Adott id-jű project törlése
   * GET /projects/{id}/workers - Egy adott projectben résztvevő alkalmazottak megtekintése
   * POST /projects/{id}/workers - Egy adott projectben résztvevő alkalmazottak listájának módosítása
+  * GET /sites - Telephelyek listázása
+  * GET /sites/{id} - Adott id-jű telephely megtekintése
+  * POST /sites - Új telephely felvétele
+  * DELETE /sites/{id} Aditt id-jű telephely törlése
+  * GET /sites/{id}/materials - Adott telephelyen tárolt nyersanyagok listázása
+  * GET /sites/{id}/workers - Adott telephelyen dolgozó alkalmazottak megtekintése
+  * POST /sites/{id}/workers - Új alkalmazott felvétele egy adott telephelyre
+  * POST /workers/authenticate - Alkalmazott hitelesítése
+  * GET /workers - Alkalmazottak listázása
+  * GET /workers/{id} - Adott alkalmazott megtekintése
+  * GET /workers/{id}/projects - Adott alkalmazott projectjeinek megtekintése
+  * POST /workers/{id}/projects - Adott alkalmazott projectjeinek módosítása
   
 ## Nem funkcionális követelmények
 
