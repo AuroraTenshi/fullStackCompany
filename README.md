@@ -88,6 +88,20 @@ A project célja egy céges alkalmazás megalkozása, ami lehetőséget nyújt a
   * resources - Az adatbázis csomagja
 * test - tesztosztályok csomagja
 
+## Végpontok
+* Végpontok leírása
+  * GET /materials - Nyersanyagok listázása
+  * GET /materials/{id} - Az adott id-jű nyersanyag megtekintése
+  * POST /materials - Új nyersanyag felvétele
+  * DELETE /materials/{id} - Adott id-jű nyersanyag törlése
+  * GET /projects - Projectek listázása
+  * GET /projects/{id} - Az adott id-jű project megtekintése
+  * POST /projects - Új project létrehozása
+  * PUT /projects/{id} - Az adott id-jű project módosítása
+  * DELETE /projects/{id} - Adott id-jű project törlése
+  * GET /projects/{id}/workers - Egy adott projectben résztvevő alkalmazottak megtekintése
+  * POST /projects/{id}/workers - Egy adott projectben résztvevő alkalmazottak listájának módosítása
+  
 ## Nem funkcionális követelmények
 
 * Az alkalmazás hibamentessége
