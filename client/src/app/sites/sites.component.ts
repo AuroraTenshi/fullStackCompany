@@ -19,20 +19,30 @@ export class SitesComponent implements OnInit {
     private siteService: SiteService,
   ) { }
 
-  ngOnInit(): void {
-    this.sites=this.siteService.getSites();
+  async ngOnInit(): Promise<void> {
+    this.sites= await this.siteService.getSites();
   }
 
-  startCreateSite():void{
-    this.dialog.open(SiteEditorComponent, {
+  async startCreateSite(): Promise<void> {
+    const createDialog=this.dialog.open(SiteEditorComponent, {
       width: '1000px',
     });
+
+    const siteToCreate=await createDialog.afterClosed().toPromise<Site>();
+    const createdSite=await this.siteService.createSite(siteToCreate);
+    this.sites.push(createdSite);
   }
 
-  startEditSite(site: Site):void{
-    this.dialog.open(SiteEditorComponent,{
+  async startEditSite(site: Site): Promise<void>{
+    const modifyDialog=this.dialog.open(SiteEditorComponent, {
       width: '1000px',
-      data: site,
-    })
+      data: site
+    });
+
+    const siteToModify=await modifyDialog.afterClosed().toPromise<Site>();
+    //const modifiedSite=await this.siteService.editSite(site.id, siteToModify);
+    const index = this.sites.indexOf(site);
+    //this.sites.splice(index, 1, modifiedSite);
   }
+
 }

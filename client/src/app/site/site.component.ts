@@ -25,10 +25,10 @@ export class SiteComponent implements OnInit {
     private siteService: SiteService
   ) { }
 
-  ngOnInit(): void {
-    if(!this.site){
-      const siteId=parseInt(this.route.snapshot.paramMap.get('id'), 10);
-      this.site=this.siteService.getSite(siteId);
+  async ngOnInit(): Promise<void> {
+    if (!this.site) {
+      const siteId = parseInt(this.route.snapshot.paramMap.get('id'), 10);
+      this.site = await this.siteService.getSite(siteId);
     }
   }
 
