@@ -67,3 +67,57 @@ A project célja egy céges alkalmazás megalkozása, ami lehetőséget nyújt a
     * H2
 
     * Spring boot Security
+    
+## Szakterületi fogalmak
+
+* Project
+* Telephely
+* Beosztás
+* Igénylő
+* Nyersanyag
+* Igénylés
+
+## Backend könyvtárstruktúra
+* main
+  * java
+    * controllers - Kontroller osztályok csomagja
+    * entities - Entitás osztályok csomagja
+    * Enums - Enum (szerepek) csomagja
+    * repositories - Tároló osztályok csomagja
+    * security - Biztonsági osztályok csomagja
+  * resources - Az adatbázis csomagja
+* test - tesztosztályok csomagja
+
+## Végpontok
+* Végpontok leírása
+  * GET /materials - Nyersanyagok listázása
+  * GET /materials/{id} - Az adott id-jű nyersanyag megtekintése
+  * POST /materials - Új nyersanyag felvétele
+  * DELETE /materials/{id} - Adott id-jű nyersanyag törlése
+  * GET /projects - Projectek listázása
+  * GET /projects/{id} - Az adott id-jű project megtekintése
+  * POST /projects - Új project létrehozása
+  * PUT /projects/{id} - Az adott id-jű project módosítása
+  * DELETE /projects/{id} - Adott id-jű project törlése
+  * GET /projects/{id}/workers - Egy adott projectben résztvevő alkalmazottak megtekintése
+  * POST /projects/{id}/workers - Egy adott projectben résztvevő alkalmazottak listájának módosítása
+  * GET /sites - Telephelyek listázása
+  * GET /sites/{id} - Adott id-jű telephely megtekintése
+  * POST /sites - Új telephely felvétele
+  * DELETE /sites/{id} Aditt id-jű telephely törlése
+  * GET /sites/{id}/materials - Adott telephelyen tárolt nyersanyagok listázása
+  * GET /sites/{id}/workers - Adott telephelyen dolgozó alkalmazottak megtekintése
+  * POST /sites/{id}/workers - Új alkalmazott felvétele egy adott telephelyre
+  * POST /workers/authenticate - Alkalmazott hitelesítése
+  * GET /workers - Alkalmazottak listázása
+  * GET /workers/{id} - Adott alkalmazott megtekintése
+  * GET /workers/{id}/projects - Adott alkalmazott projectjeinek megtekintése
+  * POST /workers/{id}/projects - Adott alkalmazott projectjeinek módosítása
+  
+* Egy végpont bemutatása: GET /sites
+  * A felhasználó GET kérést küld a /sites végpontra, és ha tartalmaz érvényes tokent, akkor a szerver vissszaküldi a felhasználónak a telephelyek listáját
+
+## Nem funkcionális követelmények
+
+* Az alkalmazás hibamentessége
+* A belépési rendszer biztonságossága
