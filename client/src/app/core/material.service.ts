@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Material } from './material';
 import { httpOptions} from './auth.service';
-import { Type } from './site';
+import { Site, Type } from './site';
 
 @Injectable({
   providedIn: 'root'
@@ -52,4 +52,9 @@ export class MaterialService {
   deleteMaterial(id:number):Promise<Material>{
     return this.httpClient.delete<Material>(`${this.materialUrl}/${id}`, httpOptions).toPromise();
   }
+
+  getPlace(id: number):Promise<Site>{
+    return this.httpClient.get<Site>(`${this.materialUrl}/${id}/place`, httpOptions).toPromise();
+  }
+
 }

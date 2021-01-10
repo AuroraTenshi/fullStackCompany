@@ -30,6 +30,7 @@ export class MaterialComponent implements OnInit {
     {
       const materialId=parseInt(this.route.snapshot.paramMap.get('id'), 10);
       this.material= await this.materialService.getMaterial(materialId);
+      this.material.place=await this.materialService.getPlace(materialId);
     }
   }
 
