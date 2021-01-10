@@ -40,9 +40,9 @@ export class SitesComponent implements OnInit {
     });
 
     const siteToModify=await modifyDialog.afterClosed().toPromise<Site>();
-    //const modifiedSite=await this.siteService.editSite(site.id, siteToModify);
+    const modifiedSite=await this.siteService.editSite(site.id, siteToModify);
     const index = this.sites.indexOf(site);
-    //this.sites.splice(index, 1, modifiedSite);
+    this.sites.splice(index, 1, modifiedSite);
   }
 
 }

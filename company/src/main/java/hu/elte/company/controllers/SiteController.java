@@ -51,6 +51,21 @@ public class SiteController {
         }
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Site> put(@PathVariable Integer id, @RequestBody Site site) {
+        Optional<Site> oSite=siteRepository.findById(id);
+        if(!oSite.isPresent()){
+            return ResponseEntity.notFound().build();
+        }else {
+            Site newSite= oSite.get();
+            newSite.setName(site.getName());
+            newSite.setAddress(site.getAddress());
+            newSite.setType(site.getType());
+
+            return ResponseEntity.ok(siteRepository.save(newSite));
+        }
+    }
+
     @PostMapping("")
     @PreAuthorize("hasRole('EMPLOYER')")
     public ResponseEntity<Site> post(@RequestBody Site site) {
