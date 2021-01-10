@@ -25,11 +25,11 @@ export class MaterialComponent implements OnInit {
     private materialService: MaterialService,
   ) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     if(!this.material)
     {
       const materialId=parseInt(this.route.snapshot.paramMap.get('id'), 10);
-      this.material=this.materialService.getMaterial(materialId);
+      this.material= await this.materialService.getMaterial(materialId);
     }
   }
 

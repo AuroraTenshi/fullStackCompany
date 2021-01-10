@@ -19,21 +19,29 @@ export class MaterialsComponent implements OnInit {
     private materialService: MaterialService
   ) { }
 
-  ngOnInit(): void {
-    this.materials=this.materialService.getMaterials();
+  async ngOnInit(): Promise<void> {
+    this.materials= await this.materialService.getMaterials();
   }
 
-  startCreateMaterial():void{
-    this.dialog.open(MaterialEditorComponent,{
+  async startCreateMaterial(): Promise<void> {
+    const createDialog=this.dialog.open(MaterialEditorComponent, {
       width: '1000px',
     });
+
+    const materialToCreate=await createDialog.afterClosed().toPromise<Material>();
+    const createdMaterial=await this.materialService.createMaterial(materialToCreate);
+    this.materials.push(createdMaterial);
   }
 
-  startEditMaterial(material: Material):void{
-    this.dialog.open(MaterialEditorComponent,{
+  async startEditMaterial(material: Material): Promise<void>{
+    const modifyDialog=this.dialog.open(MaterialEditorComponent, {
       width: '1000px',
       data: material
     });
-  }
 
+    const materialToModify=await modifyDialog.afterClosed().toPromise<Material>();
+   // const modifiedMaterial=await this.materialService.editMaterial(material.id, materialToModify);
+    const index = this.materials.indexOf(material);
+    //this.materials.splice(index, 1, modifiedMaterial);
+  }
 }
