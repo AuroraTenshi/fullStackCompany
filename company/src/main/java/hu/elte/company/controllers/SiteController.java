@@ -80,6 +80,7 @@ public class SiteController {
         if (!oSite.isPresent()) {
             return ResponseEntity.notFound().build();
         } else {
+            siteRepository.deleteById(id);
             return ResponseEntity.ok().build();
         }
     }
