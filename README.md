@@ -88,6 +88,59 @@ A project célja egy céges alkalmazás megalkozása, ami lehetőséget nyújt a
   * resources - Az adatbázis csomagja
 * test - tesztosztályok csomagja
 
+## Frontend könyvtárstruktúra
+* e2e
+  * src
+    * app.e2e-spec.ts
+    * app.po.ts
+  * protractor.conf.js
+  * tsconfig.json
+* src
+  * app
+    * core
+      * auth.guard.ts
+      * auth.service.ts
+      * material.service.ts
+      * material.ts
+      * project.service.ts
+      * project.ts
+      * site.service.ts
+      * site.ts
+      * worker.ts
+    * login
+      * login.component.ts
+    * material
+      * material.component.ts
+    * material-editor
+      * material-editor.component.ts
+    * materials
+      * materials.component.ts
+    * menu
+      * menu.component.ts
+    * project
+      * project.component.ts
+    * project-editor
+      * project-editor.component.ts
+    * projects
+      * projects.component.ts
+    * register
+      * register.component.ts
+    * site
+      * site.component.ts
+    * site-editor
+      * site-editor.component.ts
+    * sites
+      * sites.component.ts
+    * app.component.ts
+    * app.module.ts
+  * assets
+  * environments
+    * environments.prod.ts
+    * environments.ts
+  * main.ts
+  * polyfills.ts
+  * test.ts
+
 ## Végpontok
 * Végpontok leírása
   * GET /materials - Nyersanyagok listázása
