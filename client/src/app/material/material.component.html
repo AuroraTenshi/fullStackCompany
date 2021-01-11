@@ -25,5 +25,8 @@
             <p><em>No place</em></p>
         </div>
     </ng-container>
-    
+    <div *ngIf="isEmployer">
+        <button (click)="deleteMaterial(material.id)">Delete material</button>
+    </div>
+
 </ng-container>

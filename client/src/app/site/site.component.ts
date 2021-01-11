@@ -1,6 +1,7 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../core/auth.service';
 import { Site } from '../core/site';
 import { SiteService } from '../core/site.service';
 
@@ -22,7 +23,9 @@ export class SiteComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private siteService: SiteService
+    private siteService: SiteService,
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   async ngOnInit(): Promise<void> {
@@ -35,4 +38,15 @@ export class SiteComponent implements OnInit {
   edit():void{
     this.editSite.emit(this.site);
   }
+
+  async deleteSite(id: number): Promise<void> {
+
+    await this.siteService.deleteSite(id);
+    this.router.navigate(['./sites']);
+  }
+
+  isEmployer(): boolean {
+    return this.authService.isEmployer();
+  }
+
 }

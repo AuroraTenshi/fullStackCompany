@@ -39,9 +39,9 @@ export class MaterialsComponent implements OnInit {
       data: material
     });
 
-    const materialToModify=await modifyDialog.afterClosed().toPromise<Material>();
-   // const modifiedMaterial=await this.materialService.editMaterial(material.id, materialToModify);
+    const materialToModify = await modifyDialog.afterClosed().toPromise<Material>();
+    const modifiedMaterial = await this.materialService.editMaterial(material.id, materialToModify);
     const index = this.materials.indexOf(material);
-    //this.materials.splice(index, 1, modifiedMaterial);
+    this.materials.splice(index, 1, modifiedMaterial);
   }
 }

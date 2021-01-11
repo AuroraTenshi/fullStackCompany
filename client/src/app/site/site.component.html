@@ -36,4 +36,6 @@
             No materials
         </p>
     </div>
+    <button  *ngIf="isEmployer()" (click)="deleteSite(site.id)">Delete this site</button>
+
 </ng-container>

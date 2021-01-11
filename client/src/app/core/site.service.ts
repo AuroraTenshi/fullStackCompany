@@ -65,7 +65,7 @@ export class SiteService {
     return this.httpClient.post<Site>(`${this.sitesUrl}`, site, httpOptions).toPromise();
   }
 
-  async editSite(id: number, site: Site): Promise<Site> {
+  editSite(id: number, site: Site): Promise<Site> {
     return this.httpClient.put<Site>(`${this.sitesUrl}/${id}`, site, httpOptions).toPromise();
   }
 

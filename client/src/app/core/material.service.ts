@@ -49,6 +49,10 @@ export class MaterialService {
     return this.httpClient.post<Material>(`${this.materialUrl}`, material, httpOptions).toPromise();
   }
 
+  editMaterial(id: number, material: Material): Promise<Material> {
+    return this.httpClient.put<Material>(`${this.materialUrl}/${id}`, material, httpOptions).toPromise();
+  }
+
   deleteMaterial(id:number):Promise<Material>{
     return this.httpClient.delete<Material>(`${this.materialUrl}/${id}`, httpOptions).toPromise();
   }
